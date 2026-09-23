@@ -17,7 +17,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Background Video Styling */
+        /* Background Video Styling - Fixed Overlay */
         #bg-video {
             position: fixed;
             top: 0;
@@ -25,12 +25,12 @@
             width: 100vw;
             height: 100vh;
             object-fit: cover;
-            z-index: -1;
-            filter: brightness(0.65);
+            z-index: -10;
+            filter: brightness(0.6);
         }
 
         body {
-            background-color: #0b0f19;
+            background-color: transparent;
             color: #f8fafc;
             min-height: 100vh;
             display: flex;
@@ -55,7 +55,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 8%;
-            background: rgba(11, 15, 25, 0.8);
+            background: rgba(11, 15, 25, 0.85);
             backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
@@ -127,11 +127,11 @@
         }
 
         .badge {
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(56, 189, 248, 0.15);
             color: #38bdf8;
             padding: 6px 18px;
             border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.25);
+            border: 1px solid rgba(56, 189, 248, 0.3);
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 20px;
@@ -150,10 +150,11 @@
 
         .hero p {
             font-size: 18px;
-            color: #94a3b8;
+            color: #cbd5e1;
             max-width: 600px;
             margin: 0 auto 30px auto;
             line-height: 1.6;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .btn {
@@ -383,7 +384,7 @@
 <body>
 
     <!-- Background Video Tag -->
-    <video autoplay muted loop id="bg-video">
+    <video autoplay muted loop playsinline id="bg-video">
         <source src="bg-video.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
     </video>
