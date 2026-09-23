@@ -7,7 +7,8 @@
     <meta name="description" content="Welcome to Artist World S.R! Explore sketching tutorials, digital painting, and join exclusive live workshops.">
     <meta name="keywords" content="Artist World S.R, Art Studio, Pencil Sketching, Digital Painting, YouTube Art Tutorials">
     <link rel="icon" type="image/x-icon" href="Logo.png.jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -17,37 +18,27 @@
             scroll-behavior: smooth;
         }
 
-        /* Background Video Styling - Fixed Overlay */
+        /* Video Layer Styling */
         #bg-video {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
             object-fit: cover;
-            z-index: -10;
-            filter: brightness(0.6);
+            filter: brightness(0.5); /* Thoda dark taaki background light artwork ke upar text saaf dikhe */
         }
 
         body {
-            background-color: transparent;
+            background-color: #0b0f19;
             color: #f8fafc;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
-        }
-
-        /* Ambient Glow Animations */
-        @keyframes floatGlow {
-            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
-            50% { transform: translate(-50%, -45%) scale(1.2); opacity: 0.5; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         header {
@@ -60,7 +51,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .logo {
@@ -82,7 +73,7 @@
         }
 
         nav a {
-            color: #94a3b8;
+            color: #e2e8f0;
             text-decoration: none;
             margin-left: 25px;
             font-weight: 500;
@@ -93,7 +84,7 @@
             color: #38bdf8;
         }
 
-        /* Hero Section */
+        /* Hero Section Styling - Glassmorphism & High Contrast Text */
         .hero {
             position: relative;
             display: flex;
@@ -101,86 +92,81 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 110px 20px;
+            padding: 100px 20px;
             overflow: hidden;
             background: transparent;
-        }
-
-        .glow-effect {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, rgba(129, 140, 248, 0.1) 60%, transparent 80%);
-            border-radius: 50%;
-            filter: blur(60px);
-            z-index: 1;
-            pointer-events: none;
-            animation: floatGlow 8s infinite ease-in-out;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            animation: fadeInUp 0.8s ease-out;
+            max-width: 800px;
+            background: rgba(11, 15, 25, 0.75); /* Dark Glass Card Background */
+            padding: 45px 35px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
         }
 
         .badge {
-            background: rgba(56, 189, 248, 0.15);
-            color: #38bdf8;
-            padding: 6px 18px;
+            background: #38bdf8;
+            color: #0b0f19;
+            padding: 6px 20px;
             border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 20px;
             display: inline-block;
-            backdrop-filter: blur(5px);
+            letter-spacing: 0.5px;
         }
 
         .hero h1 {
-            font-size: 52px;
+            font-size: 48px;
             margin-bottom: 15px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            color: #ffffff; /* Bright Pure White Text */
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+            letter-spacing: 1px;
         }
 
         .hero p {
             font-size: 18px;
-            color: #cbd5e1;
-            max-width: 600px;
+            color: #f1f5f9; /* Soft Light White Color */
+            max-width: 650px;
             margin: 0 auto 30px auto;
             line-height: 1.6;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            font-weight: 400;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
         }
 
         .btn {
             padding: 14px 34px;
-            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-            color: #ffffff;
+            background: #38bdf8;
+            color: #0b0f19;
             border: none;
             border-radius: 8px;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 15px;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-block;
-            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
         }
 
         .btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+            background: #0284c7;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
         }
 
+        /* Portfolio Section */
         .portfolio {
             padding: 80px 8%;
             text-align: center;
-            background-color: rgba(15, 23, 42, 0.85);
+            background-color: rgba(15, 23, 42, 0.88);
             backdrop-filter: blur(8px);
         }
 
@@ -275,10 +261,11 @@
             font-size: 13px;
         }
 
+        /* Workshops Section */
         .workshops {
             padding: 80px 8%;
             text-align: center;
-            background-color: rgba(11, 15, 25, 0.85);
+            background-color: rgba(11, 15, 25, 0.88);
             backdrop-filter: blur(8px);
         }
 
@@ -335,10 +322,11 @@
             font-weight: 500;
         }
 
+        /* Contact Section */
         .contact {
             padding: 80px 8%;
             text-align: center;
-            background-color: rgba(15, 23, 42, 0.85);
+            background-color: rgba(15, 23, 42, 0.88);
             backdrop-filter: blur(8px);
         }
 
@@ -384,7 +372,7 @@
 <body>
 
     <!-- Background Video Tag -->
-    <video autoplay muted loop playsinline id="bg-video">
+    <video id="bg-video" autoplay muted loop playsinline preload="auto">
         <source src="bg-video.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
     </video>
@@ -403,8 +391,6 @@
     </header>
 
     <section class="hero">
-        <div class="glow-effect"></div>
-
         <div class="hero-content">
             <div class="badge">✨ Official Creative Studio</div>
             <h1>Welcome to Artist World S.R</h1>
@@ -510,6 +496,19 @@
     <footer>
         <p>© 2026 ARTIST WORLD S.R. All Rights Reserved.</p>
     </footer>
+
+    <!-- Force Autoplay Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var video = document.getElementById('bg-video');
+            if (video) {
+                video.muted = true;
+                video.play().catch(function(error) {
+                    console.log("Autoplay prevented:", error);
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
