@@ -4,215 +4,161 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artist World S.R</title>
-  
-  <!-- Stylish Google Fonts Import -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;600&family=Righteous&display=swap" rel="stylesheet">
-
   <style>
-    /* Smooth Scroll & Font Settings */
+    /* Smooth Scrolling */
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #0d1117;
-      color: #e6edf3;
+      background-color: #0f172a;
+      color: #f8fafc;
       text-align: center;
-      overflow-x: hidden;
     }
 
-    /* Animated Gradient Headings */
-    h1, h2, h3 {
-      font-family: 'Righteous', cursive;
-      letter-spacing: 1px;
-    }
-
-    /* Header Navigation */
+    /* Header & Navigation */
     header {
-      background: rgba(22, 27, 34, 0.85);
-      backdrop-filter: blur(10px);
-      padding: 18px;
+      background: #1e293b;
+      padding: 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
 
     nav a {
       color: #38bdf8;
       text-decoration: none;
-      margin: 0 18px;
-      font-weight: 600;
-      font-size: 1.05rem;
-      transition: all 0.3s ease;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
       color: #f43f5e;
-      text-shadow: 0 0 10px rgba(244, 63, 94, 0.6);
     }
 
-    /* Hero Section */
+    /* Hero Section Animation */
     .hero {
-      padding: 80px 20px;
+      padding: 60px 20px;
       animation: fadeIn 1.5s ease-in-out;
     }
 
     .hero img {
-      width: 170px;
-      height: 170px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       border: 4px solid #38bdf8;
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
       transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
     .hero img:hover {
       transform: scale(1.08) rotate(3deg);
-      box-shadow: 0 0 40px rgba(244, 63, 94, 0.8);
+      box-shadow: 0 0 35px rgba(244, 63, 94, 0.8);
     }
 
-    /* Animated Text Effect */
     .hero h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-top: 20px;
-      background: linear-gradient(45deg, #38bdf8, #f43f5e, #a855f7);
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientShift 4s ease infinite;
+      color: #f8fafc;
     }
 
-    .hero p {
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      color: #94a3b8;
-    }
-
-    /* Gallery Section */
+    /* Gallery Section with Grid & Hover Effects */
     .gallery-section {
-      padding: 60px 20px;
-      background-color: #161b22;
+      padding: 50px 20px;
+      background-color: #1e293b;
     }
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
       max-width: 1000px;
-      margin: 40px auto 0 auto;
+      margin: 30px auto 0 auto;
     }
 
     .art-card {
-      background: #0d1117;
-      border-radius: 16px;
+      background: #0f172a;
+      border-radius: 12px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .art-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.3);
-      border-color: #38bdf8;
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.4);
     }
 
     .art-card img {
       width: 100%;
-      height: 240px;
+      height: 220px;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
 
     .art-card:hover img {
-      transform: scale(1.08);
+      transform: scale(1.1);
     }
 
     .art-card h3 {
-      margin: 18px 0 12px 0;
+      margin: 15px 0 10px 0;
       color: #38bdf8;
-      font-size: 1.2rem;
     }
 
-    /* Social Media Links Section */
-    .social-section {
-      padding: 30px 20px;
-    }
-
-    .social-btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 24px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #fff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .youtube-btn {
-      background: #ff0000;
-      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
-    }
-
-    .social-btn:hover {
-      transform: scale(1.08);
-    }
-
-    /* Contact Form */
+    /* Contact Form Styling */
     .contact-section {
       padding: 60px 20px;
       max-width: 500px;
       margin: 0 auto;
     }
 
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
     input, textarea {
       width: 100%;
-      padding: 14px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      border: 1px solid #30363d;
-      background: #161b22;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      background: #1e293b;
       color: #fff;
-      font-family: 'Poppins', sans-serif;
       box-sizing: border-box;
     }
 
     button {
-      width: 100%;
-      padding: 14px;
+      padding: 12px;
       border: none;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #38bdf8, #a855f7);
+      border-radius: 8px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
       color: #fff;
-      font-size: 1rem;
       font-weight: bold;
-      font-family: 'Righteous', cursive;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      transition: transform 0.2s ease, background 0.3s ease;
     }
 
     button:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+      transform: scale(1.03);
+      background: linear-gradient(135deg, #f43f5e, #fb7185);
     }
 
-    /* Keyframes */
+    /* Keyframe Animations */
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -229,30 +175,26 @@
   <section id="home" class="hero">
     <img src="Logo.png.jpeg" alt="Artist World S.R Logo">
     <h1>Artist World S.R</h1>
-    <p>Welcome to my official art portfolio</p>
-    
-    <div class="social-section">
-      <a href="https://youtube.com/@artistworlds.r" target="_blank" class="social-btn youtube-btn">Subscribe on YouTube</a>
-    </div>
+    <p>Welcome to my official art portfolio!</p>
   </section>
 
   <section id="gallery" class="gallery-section">
-    <h2>Featured Artworks</h2>
+    <h2>Art Gallery</h2>
     <div class="gallery-grid">
       <div class="art-card">
         <img src="Logo.png.jpeg" alt="Artwork 1">
-        <h3>Official Logo Art</h3>
+        <h3>Featured Logo Art</h3>
       </div>
     </div>
   </section>
 
   <section id="contact" class="contact-section">
-    <h2>Get In Touch</h2>
+    <h2>Contact Me</h2>
     <form action="https://formspree.io/f/mbglyrel" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">SEND MESSAGE</button>
+      <button type="submit">Send Message</button>
     </form>
   </section>
 
