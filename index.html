@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist World S.R | Official Art Studio & Workshops</title>
+    <meta name="description" content="Welcome to Artist World S.R! Explore sketching tutorials, digital painting, and join exclusive live workshops.">
+    <meta name="keywords" content="Artist World S.R, Art Studio, Pencil Sketching, Digital Painting, YouTube Art Tutorials">
+    <link rel="icon" type="image/x-icon" href="Logo.png.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow Animations */
+        @keyframes floatGlow {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -45%) scale(1.2); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #38bdf8;
+            letter-spacing: 1px;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #38bdf8;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 110px 20px;
+            overflow: hidden;
+            background: #0b0f19;
+        }
+
+        .glow-effect {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, rgba(129, 140, 248, 0.1) 60%, transparent 80%);
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 1;
+            pointer-events: none;
+            animation: floatGlow 8s infinite ease-in-out;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 6px 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+        }
+
+        .btn {
+            padding: 14px 34px;
+            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+        }
+
+        .portfolio {
+            padding: 80px 8%;
+            text-align: center;
+            background-color: #0f172a;
+        }
+
+        .portfolio h2, .workshops h2, .contact h2 {
+            font-size: 32px;
+            color: #f8fafc;
+            margin-bottom: 10px;
+        }
+
+        .section-desc {
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-card {
+            background-color: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .video-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-card:hover .video-container img {
+            transform: scale(1.08);
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(11, 15, 25, 0.85);
+            color: #38bdf8;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 1px solid #38bdf8;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card:hover .play-btn {
+            background: #38bdf8;
+            color: #0f172a;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .card-info {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .card-info h3 {
+            color: #f8fafc;
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .card-info p {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .workshops {
+            padding: 80px 8%;
+            text-align: center;
+            background-color: #0b0f19;
+        }
+
+        .workshop-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .workshop-card {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .workshop-card:hover {
+            border-color: #818cf8;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(129, 140, 248, 0.15);
+        }
+
+        .card-badge {
+            background-color: rgba(129, 140, 248, 0.15);
+            color: #818cf8;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .workshop-card h3 {
+            color: #f8fafc;
+            margin-bottom: 10px;
+        }
+
+        .workshop-card p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .workshop-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            color: #38bdf8;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .contact {
+            padding: 80px 8%;
+            text-align: center;
+            background-color: #0f172a;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #f8fafc;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+        }
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            background-color: #0b0f19;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: #64748b;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="Logo.png.jpeg" alt="Artist World Logo" class="logo-img">
+            <span>ARTIST WORLD S.R</span>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#portfolio">Videos</a>
+            <a href="#workshops">Workshops</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="glow-effect"></div>
+
+        <div class="hero-content">
+            <div class="badge">✨ Official Creative Studio</div>
+            <h1>Welcome to Artist World S.R</h1>
+            <p>Explore creative artworks, join exclusive art workshops, and bring your imagination to life.</p>
+            <a href="#portfolio" class="btn">Explore Videos</a>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2>YouTube Art Tutorials & Videos</h2>
+        <p class="section-desc">@ArtistWorldS.R Channel Featured Content</p>
+        
+        <div class="portfolio-grid">
+            <a href="https://youtu.be/nM-w2nc1XsY" target="_blank" class="portfolio-card">
+                <div class="video-container">
+                    <img src="https://img.youtube.com/vi/nM-w2nc1XsY/hqdefault.jpg" alt="Short Video 1">
+                    <div class="play-btn">▶</div>
+                </div>
+                <div class="card-info">
+                    <h3>Featured Short / Art Video 1</h3>
+                    <p>Click to watch on YouTube</p>
+                </div>
+            </a>
+
+            <a href="https://youtu.be/RdEM8GKbwjw" target="_blank" class="portfolio-card">
+                <div class="video-container">
+                    <img src="https://img.youtube.com/vi/RdEM8GKbwjw/hqdefault.jpg" alt="Art Tutorial 2">
+                    <div class="play-btn">▶</div>
+                </div>
+                <div class="card-info">
+                    <h3>Featured Art Tutorial 2</h3>
+                    <p>Click to watch on YouTube</p>
+                </div>
+            </a>
+
+            <a href="https://youtu.be/ZVtSpnGmvSk" target="_blank" class="portfolio-card">
+                <div class="video-container">
+                    <img src="https://img.youtube.com/vi/ZVtSpnGmvSk/hqdefault.jpg" alt="Art Video 3">
+                    <div class="play-btn">▶</div>
+                </div>
+                <div class="card-info">
+                    <h3>Featured Art Video 3</h3>
+                    <p>Click to watch on YouTube</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="workshops" id="workshops">
+        <h2>Upcoming Art Workshops</h2>
+        <p class="section-desc">Learn new techniques and level up your art skills.</p>
+        
+        <div class="workshop-cards">
+            <div class="workshop-card">
+                <div class="card-badge">Live Class</div>
+                <h3>Pencil Sketching Masterclass</h3>
+                <p>Master shading, proportions, and realistic textures.</p>
+                <div class="workshop-info">
+                    <span>📅 Date: Coming Soon</span>
+                    <span>⏰ Time: Live Sessions</span>
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <div class="card-badge">Bootcamp</div>
+                <h3>Digital Painting Basics</h3>
+                <p>Learn brush settings, color blending, and lighting concepts.</p>
+                <div class="workshop-info">
+                    <span>📅 Date: Coming Soon</span>
+                    <span>⏰ Time: Live Sessions</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Join Workshop / Contact Me</h2>
+        <p class="section-desc">Apna naam aur details bharke workshop ke liye register karein.</p>
+
+        <!-- Formspree Connected Form -->
+        <form class="contact-form" action="https://formspree.io/f/mbglyrel" method="POST">
+            <div class="input-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="input-group">
+                <select name="workshop_topic" required>
+                    <option value="" disabled selected>Select Workshop Topic</option>
+                    <option value="pencil_sketching">Pencil Sketching Masterclass</option>
+                    <option value="digital_painting">Digital Painting Basics</option>
+                    <option value="general_inquiry">General Inquiry</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <textarea name="message" rows="4" placeholder="Your Message or Questions..."></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Details</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 ARTIST WORLD S.R. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
