@@ -17,6 +17,18 @@
             scroll-behavior: smooth;
         }
 
+        /* Background Video Styling */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.65);
+        }
+
         body {
             background-color: #0b0f19;
             color: #f8fafc;
@@ -91,7 +103,7 @@
             text-align: center;
             padding: 110px 20px;
             overflow: hidden;
-            background: #0b0f19;
+            background: transparent;
         }
 
         .glow-effect {
@@ -167,7 +179,8 @@
         .portfolio {
             padding: 80px 8%;
             text-align: center;
-            background-color: #0f172a;
+            background-color: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
         }
 
         .portfolio h2, .workshops h2, .contact h2 {
@@ -264,7 +277,8 @@
         .workshops {
             padding: 80px 8%;
             text-align: center;
-            background-color: #0b0f19;
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(8px);
         }
 
         .workshop-cards {
@@ -323,7 +337,8 @@
         .contact {
             padding: 80px 8%;
             text-align: center;
-            background-color: #0f172a;
+            background-color: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
         }
 
         .contact-form {
@@ -358,7 +373,7 @@
         footer {
             padding: 25px;
             text-align: center;
-            background-color: #0b0f19;
+            background-color: rgba(11, 15, 25, 0.95);
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             color: #64748b;
             font-size: 13px;
@@ -366,6 +381,12 @@
     </style>
 </head>
 <body>
+
+    <!-- Background Video Tag -->
+    <video autoplay muted loop id="bg-video">
+        <source src="bg-video.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
 
     <header>
         <div class="logo">
